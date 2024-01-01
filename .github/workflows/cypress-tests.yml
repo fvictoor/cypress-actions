@@ -1,0 +1,16 @@
+name: Cypress Tests
+
+on: [push]
+
+jobs: 
+  cypress-electron-tests:
+    runs-on: ubunto-latest
+    steps:
+      - name: Get code
+      - uses: actions/checkout@v4.1.1
+
+      - name: Install dependences
+        run: yarn install 
+
+      - name: Run E2E tests
+        run: yarn cypress run
