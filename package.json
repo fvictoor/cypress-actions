@@ -1,15 +1,10 @@
 {
-  "name": "login-xp",
+  "name": "cypress-cloud",
   "version": "1.0.0",
   "description": "Projeto de testes de login com Cypress",
   "main": "index.js",
-  "scripts": {
-    "cypress:test": "yarn cypress run",
-    "cypress:gui": "yarn cypress open"
-  },
-  "author": "Fernando Papito",
-  "license": "MIT",
+  "author": "Victor",
   "devDependencies": {
-    "cypress": "12.5.1"
+    "cypress": "^13.6.1"
   }
 }
