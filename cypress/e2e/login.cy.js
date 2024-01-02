@@ -1,34 +1,26 @@
-describe('Login', () => {
-    const modalContent = '.swal2-html-container'
-    const toast = 'div[role=status]'
-
-    it ('usuário obrigatório', ()=> {
-        cy.login(null, 'teste')
-        cy.get(toast)
-            .should('have.text', 'Informe o seu nome de usuário!')
+describe('Testes de Regressão',()=>{
+  
+    let data;
+    
+    before  (()=>{
+      cy.fixture('test').then(t=> {
+          data = t
+      })
     })
-
-    it ('senha obrigatória', ()=> {
-        cy.login('qa', null)
-        cy.get(toast)
-            .should('have.text', 'Informe a sua senha secreta!')
+  
+    context('login', ()=>{
+        
+        it('Deve abrir o Site', ()=> {
+            
+            cy.visit('https://staging01.dentalspeed.com')
+            cy.title().should('eq', 'Dental Speed | Produtos Odontológicos')
+            //cy.get('#onetrust-accept-btn-handler').click()
+        })
+  
+        it('Deve fazer o Login no Site', ()=> {
+          const test = data.login
+  
+  
+        })
     })
-
-    it('usuário não existe', () => {
-        cy.login('teste', 'teste')
-        cy.get(toast)
-            .should('have.text', 'Oops! Credenciais inválidas :(')
-    })
-
-    it('senha incorreta', () => {
-        cy.login('qa', 'teste')
-        cy.get(toast)
-            .should('have.text', 'Oops! Credenciais inválidas :(')
-    })
-
-    it('com sucesso', () => {
-        cy.login('qa', 'xperience')
-        cy.get(modalContent)
-            .should('have.text', 'Suas credenciais são válidas :)')
-    })
-})
+  })
