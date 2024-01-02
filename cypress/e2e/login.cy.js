@@ -17,10 +17,5 @@ describe('Testes de Regressão',()=>{
             //cy.get('#onetrust-accept-btn-handler').click()
         })
   
-        it('Deve fazer o Login no Site', ()=> {
-          const test = data.login
-  
-  
-        })
     })
   })
